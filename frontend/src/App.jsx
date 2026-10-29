@@ -6,7 +6,7 @@ import ProductCatalog from './components/ProductCatalog';
 import HealthQuiz from './components/HealthQuiz';
 import PureHoneyGuide from './components/PureHoneyGuide';
 import AboutSection from './components/AboutSection';
-import ReviewsSection from './components/ReviewsSection';
+import CertificationsSection from './components/CertificationsSection';
 import FAQSection from './components/FAQSection';
 import Footer from './components/Footer';
 import CartDrawer from './components/CartDrawer';
@@ -121,7 +121,7 @@ export default function App() {
 
         <AboutSection />
 
-        <ReviewsSection />
+        <CertificationsSection />
 
         <FAQSection />
       </main>

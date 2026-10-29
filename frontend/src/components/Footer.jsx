@@ -68,6 +68,9 @@ export default function Footer() {
             </h5>
             <ul className="space-y-2 text-xs">
               <li>
+                <a href="#certificacoes" className="hover:text-amber-400 transition">Certificações Oficiais (SIE e SENAI)</a>
+              </li>
+              <li>
                 <a href="#sobre-nos" className="hover:text-amber-400 transition">Quem Somos & Unidade em Goiânia</a>
               </li>
               <li>

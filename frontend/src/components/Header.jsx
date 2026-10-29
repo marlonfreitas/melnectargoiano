@@ -57,7 +57,7 @@ export default function Header({ cartCount, onOpenCart, onNavigate }) {
           <nav className="hidden lg:flex items-center gap-8 font-medium text-sm text-stone-700">
             <a href="#produtos" className="hover:text-amber-600 transition">Produtos</a>
             <a href="#tamanhos" className="hover:text-amber-600 transition">Embalagens (280g a 1.4kg)</a>
-            <a href="#quiz-saude" className="hover:text-amber-600 transition">Recomendador</a>
+            <a href="#certificacoes" className="hover:text-amber-600 transition">Certificações</a>
             <a href="#teste-pureza" className="hover:text-amber-600 transition">Pureza do Cerrado</a>
             <a href="#sobre-nos" className="hover:text-amber-600 transition">Quem Somos</a>
             <a href="#faq" className="hover:text-amber-600 transition">Dúvidas</a>
@@ -122,11 +122,11 @@ export default function Header({ cartCount, onOpenCart, onNavigate }) {
               ⚖️ Embalagens (280g, 500g, 700g, 1kg, 1.44kg)
             </a>
             <a 
-              href="#quiz-saude" 
+              href="#certificacoes" 
               onClick={() => setMobileMenuOpen(false)}
               className="px-3 py-2 rounded-lg hover:bg-amber-50 text-stone-800"
             >
-              ✨ Descubra seu Mel Ideal (Quiz)
+              🏅 Certificações (SIE / SENAI)
             </a>
             <a 
               href="#teste-pureza" 

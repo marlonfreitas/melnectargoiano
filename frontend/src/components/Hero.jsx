@@ -69,21 +69,30 @@ export default function Hero({ onExplore }) {
               </a>
             </div>
 
-            {/* Social Proof Mini */}
-            <div className="pt-3 flex items-center justify-center lg:justify-start gap-4">
-              <div className="flex -space-x-2">
-                <img className="inline-block h-9 w-9 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Cliente" />
-                <img className="inline-block h-9 w-9 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="Cliente" />
-                <img className="inline-block h-9 w-9 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80" alt="Cliente" />
-              </div>
-              <div className="text-left">
-                <div className="flex items-center text-amber-500">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-current" />
-                  ))}
-                  <span className="ml-1 text-xs font-bold text-stone-900">4.9/5</span>
+            {/* Official Certification Badges */}
+            <div className="pt-3 flex flex-wrap items-center justify-center lg:justify-start gap-2.5">
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white border border-stone-200/90 shadow-xs">
+                <img src="/selo_sie.png" alt="Selo SIE 1718/26 Goiás" className="h-7 w-auto object-contain" />
+                <div className="text-left text-[11px] leading-tight">
+                  <span className="font-bold text-stone-900 block">SIE 1718/26</span>
+                  <span className="text-stone-500">Inspeção Estadual GO</span>
                 </div>
-                <p className="text-xs text-stone-500 font-medium">+1.800 potes entregues em Goiás e no Brasil</p>
+              </div>
+
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white border border-stone-200/90 shadow-xs">
+                <img src="/selo_senai.png" alt="Selo Alimento Confiável SENAI" className="h-7 w-auto object-contain" />
+                <div className="text-left text-[11px] leading-tight">
+                  <span className="font-bold text-stone-900 block">SENAI</span>
+                  <span className="text-stone-500">Alimento Confiável</span>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white border border-stone-200/90 shadow-xs">
+                <img src="/selo_inpi.png" alt="Marca Registrada INPI" className="h-7 w-auto object-contain" />
+                <div className="text-left text-[11px] leading-tight">
+                  <span className="font-bold text-stone-900 block">Marca Registrada</span>
+                  <span className="text-stone-500">® no INPI</span>
+                </div>
               </div>
             </div>
 
@@ -136,8 +145,8 @@ export default function Hero({ onExplore }) {
                   <ShieldCheck className="w-6 h-6" />
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-stone-900">Laudo de Pureza</div>
-                  <div className="text-[11px] text-stone-500">Origem: Cerrado de Goiás</div>
+                  <div className="text-xs font-bold text-stone-900">Certificado SIE</div>
+                  <div className="text-[11px] text-stone-500">SIE 1718/26 • Agrodefesa</div>
                 </div>
               </div>
 
