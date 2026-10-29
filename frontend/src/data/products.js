@@ -12,7 +12,7 @@ export const PRODUCTS = [
       "1000g": "/products/mel1000g.png",
     },
     variants: [
-      { weight: "1000g", label: "Pote 1kg", price: 64.90, oldPrice: 75.00, popular: true, desc: "Pote generoso de 1 kg para uso diário da família" }
+      { weight: "1000g", label: "Pote 1kg", price: 45.00, oldPrice: 50.00, popular: true, desc: "Pote generoso de 1 kg para uso diário da família" }
     ],
     features: [
       "100% Puro da Flora do Cerrado",
@@ -34,7 +34,7 @@ export const PRODUCTS = [
       "500g": "/products/mel500g.png",
     },
     variants: [
-      { weight: "500g", label: "Frasco 500g", price: 38.90, oldPrice: 44.00, popular: true, desc: "Frasco prático para servir na mesa sem sujeira" }
+      { weight: "500g", label: "Frasco 500g", price: 23.00, oldPrice: 26.00, popular: true, desc: "Frasco prático para servir na mesa sem sujeira" }
     ],
     features: [
       "Frasco fácil de servir",
@@ -56,7 +56,7 @@ export const PRODUCTS = [
       "280g": "/products/mel280g.png",
     },
     variants: [
-      { weight: "280g", label: "Bisnaga 280g", price: 24.90, oldPrice: 28.00, popular: true, desc: "Bico corta-gotas que não suja a embalagem" }
+      { weight: "280g", label: "Bisnaga 280g", price: 13.00, oldPrice: 15.00, popular: true, desc: "Bico corta-gotas que não suja a embalagem" }
     ],
     features: [
       "Excelente para pré-treino e energia rápida",
@@ -78,7 +78,7 @@ export const PRODUCTS = [
       "700g": "/products/mel700g.png",
     },
     variants: [
-      { weight: "700g", label: "Pote 700g", price: 49.90, oldPrice: 56.00, popular: true, desc: "Embalagem clássica com fechamento hermético" }
+      { weight: "700g", label: "Pote 700g", price: 32.00, oldPrice: 36.00, popular: true, desc: "Embalagem clássica com fechamento hermético" }
     ],
     features: [
       "Embalagem que preserva sabor e pureza",
@@ -100,10 +100,10 @@ export const PRODUCTS = [
       "1440g": "/products/mel1440g.png",
     },
     variants: [
-      { weight: "1440g", label: "Balde 1.44kg", price: 86.90, oldPrice: 99.00, popular: true, desc: "Menor valor por quilo de mel puro" }
+      { weight: "1440g", label: "Balde 1.44kg", price: 60.00, oldPrice: 68.00, popular: true, desc: "Menor valor por quilo de mel puro" }
     ],
     features: [
-      "Máxima economia por kg",
+      "Máxima economia por kg (apenas R$ 41,66/kg)",
       "Ideal para receitas e culinária fit",
       "Alça reforçada para fácil manuseio",
       "Validade de 2 anos"
@@ -113,7 +113,7 @@ export const PRODUCTS = [
     id: "combo-familia-3x1kg",
     name: "Trio Mel Silvestre Néctar Goiano 3x 1kg (Total 3kg)",
     tagline: "Estoque garantido na sua casa com FRETE GRÁTIS para todo o Brasil",
-    description: "3 potes de 1.000g (1 kg cada) do nosso puro Mel Silvestre. O combo favorito dos clientes com entrega gratuita garantida e desconto progressivo imediato.",
+    description: "3 potes de 1.000g (1 kg cada) do nosso puro Mel Silvestre. O combo favorito dos clientes com entrega gratuita garantida e economia direta.",
     category: "economicos",
     badge: "Frete Grátis Brasil",
     rating: 5.0,
@@ -122,11 +122,11 @@ export const PRODUCTS = [
       "3kg": "/products/mel1000g.png",
     },
     variants: [
-      { weight: "3kg", label: "3 Potes de 1kg (Total 3kg)", price: 179.90, oldPrice: 205.00, popular: true, desc: "Equivale a apenas R$ 59,96 por kg (Super econômico)" }
+      { weight: "3kg", label: "3 Potes de 1kg (Total 3kg)", price: 125.00, oldPrice: 135.00, popular: true, desc: "Equivale a apenas R$ 41,66 por kg (Economize R$ 10 + Frete Grátis)" }
     ],
     features: [
       "FRETE GRÁTIS elegível direto no checkout",
-      "Economia imediata de mais de R$ 25,00",
+      "Economia imediata de mais de R$ 10,00 no combo",
       "Lote recém-envasado na sede em Goiânia",
       "Embalado com proteção anti-impacto reforçada"
     ]
@@ -144,5 +144,5 @@ export const STORE_INFO = {
   instagram: "@melnectargoiano",
   pixKey: "vendas@brapicultura.com.br",
   pixBeneficiary: "BR Apicultura & Mel Néctar Goiano Ltda",
-  freeShippingThreshold: 150.00
+  freeShippingThreshold: 120.00
 };

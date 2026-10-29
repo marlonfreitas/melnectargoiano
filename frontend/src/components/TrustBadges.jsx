@@ -11,7 +11,7 @@ export default function TrustBadges() {
     {
       icon: Truck,
       title: "Entrega Segura em Todo Brasil",
-      desc: "Embalagens reforçadas anti-vazamento. Frete grátis acima de R$ 150."
+      desc: "Embalagens reforçadas anti-vazamento. Frete grátis acima de R$ 120."
     },
     {
       icon: Sparkles,

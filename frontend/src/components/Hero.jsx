@@ -118,7 +118,7 @@ export default function Hero({ onExplore }) {
                   <div className="mt-3 flex items-center justify-between pt-3 border-t border-white/20">
                     <div>
                       <span className="text-xs text-stone-300 block">5 Tamanhos a partir de</span>
-                      <span className="text-2xl font-extrabold text-amber-400">R$ 24,90</span>
+                      <span className="text-2xl font-extrabold text-amber-400">R$ 13,00</span>
                     </div>
                     <a
                       href="#produtos"

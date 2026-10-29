@@ -11,7 +11,7 @@ export default function Header({ cartCount, onOpenCart, onNavigate }) {
       <div className="bg-stone-900 text-amber-300 text-xs py-2 px-4 text-center font-medium flex items-center justify-center gap-3">
         <span className="flex items-center gap-1">
           <Sparkles className="w-3.5 h-3.5 text-amber-400 inline" />
-          <strong>FRETE GRÁTIS</strong> para todo o Brasil acima de R$ 150
+          <strong>FRETE GRÁTIS</strong> para todo o Brasil acima de R$ 120
         </span>
         <span className="hidden md:inline text-stone-600">|</span>
         <a 

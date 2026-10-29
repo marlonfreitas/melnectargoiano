@@ -12,7 +12,7 @@ export default function FAQSection() {
     },
     {
       q: "Vocês enviam para todo o Brasil? Como funciona o frete?",
-      a: "Enviamos para qualquer cidade do Brasil com embalagens reforçadas anti-impacto. Compras acima de R$ 150,00 contam com FRETE GRÁTIS! Para Goiânia e região metropolitana, temos entregas expressas via motoboy ou retirada presencial."
+      a: "Enviamos para qualquer cidade do Brasil com embalagens reforçadas anti-impacto. Compras acima de R$ 120,00 contam com FRETE GRÁTIS! Para Goiânia e região metropolitana, temos entregas expressas via motoboy ou retirada presencial."
     },
     {
       q: "Posso retirar pessoalmente em Goiânia?",
