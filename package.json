@@ -5,8 +5,7 @@
   "description": "Storefront e Landing Page de Alta Conversão para BR Apicultura - Mel Néctar Goiano",
   "scripts": {
     "dev": "npm --prefix frontend run dev",
-    "build": "npm --prefix frontend run build",
+    "build": "npm --prefix frontend run build && node -e \"require('fs').cpSync('frontend/dist', 'dist', {recursive: true})\"",
     "preview": "npm --prefix frontend run preview"
   }
 }
-
