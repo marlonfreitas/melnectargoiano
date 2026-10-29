@@ -6,6 +6,7 @@ import ProductCatalog from './components/ProductCatalog';
 import HealthQuiz from './components/HealthQuiz';
 import PureHoneyGuide from './components/PureHoneyGuide';
 import AboutSection from './components/AboutSection';
+import FacilityProcessSection from './components/FacilityProcessSection';
 import CertificationsSection from './components/CertificationsSection';
 import FAQSection from './components/FAQSection';
 import Footer from './components/Footer';
@@ -120,6 +121,8 @@ export default function App() {
         <PureHoneyGuide />
 
         <AboutSection />
+
+        <FacilityProcessSection />
 
         <CertificationsSection />
 

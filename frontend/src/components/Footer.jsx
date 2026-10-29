@@ -79,6 +79,9 @@ export default function Footer() {
             </h5>
             <ul className="space-y-2 text-xs">
               <li>
+                <a href="#conheca-br-apicultura" className="hover:text-amber-400 transition">Conheça a BR Apicultura & Envase</a>
+              </li>
+              <li>
                 <a href="#certificacoes" className="hover:text-amber-400 transition">Certificações Oficiais (SIE e SENAI)</a>
               </li>
               <li>
