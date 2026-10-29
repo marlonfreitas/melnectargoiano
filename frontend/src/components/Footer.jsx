@@ -56,10 +56,7 @@ export default function Footer() {
                 <a href="#produtos" className="hover:text-amber-400 transition">Mel Silvestre Balde 1.440g</a>
               </li>
               <li>
-                <a href="#produtos" className="hover:text-amber-400 transition">Favo de Mel Natural</a>
-              </li>
-              <li>
-                <a href="#produtos" className="hover:text-amber-400 transition">Extrato de Própolis Verde & Spray</a>
+                <a href="#produtos" className="hover:text-amber-400 transition">Trio Mel Silvestre 3x 1kg (Frete Grátis)</a>
               </li>
             </ul>
           </div>

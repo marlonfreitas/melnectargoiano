@@ -69,8 +69,8 @@ export default function ProductCard({ product, onAddToCart, onBuyNow }) {
           </p>
         </div>
 
-        {/* Interactive Variant/Weight Selector */}
-        {product.variants.length > 1 && (
+        {/* Interactive Variant/Weight Selector or Single Weight Display */}
+        {product.variants.length > 1 ? (
           <div className="space-y-1.5 pt-1">
             <div className="flex items-center justify-between text-xs text-stone-500">
               <span className="font-semibold text-stone-700">Escolha a embalagem:</span>
@@ -97,6 +97,17 @@ export default function ProductCard({ product, onAddToCart, onBuyNow }) {
             </div>
             {currentVariant.desc && (
               <p className="text-[11px] text-stone-500 italic mt-1">
+                💡 {currentVariant.desc}
+              </p>
+            )}
+          </div>
+        ) : (
+          <div className="pt-1">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-amber-50 text-amber-900 border border-amber-200 text-xs font-semibold">
+              <span>⚖️ Peso Líquido: <strong>{currentVariant.weight}</strong></span>
+            </div>
+            {currentVariant.desc && (
+              <p className="text-[11px] text-stone-500 italic mt-1.5">
                 💡 {currentVariant.desc}
               </p>
             )}

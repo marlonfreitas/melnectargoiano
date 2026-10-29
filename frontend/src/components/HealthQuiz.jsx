@@ -9,34 +9,34 @@ export default function HealthQuiz({ onAddToCart }) {
     {
       id: 'imunidade',
       icon: Shield,
-      title: 'Aumentar Imunidade & Proteção',
-      subtitle: 'Defesa contra gripes, viroses e inflamações.',
-      recommendedProductId: 'kit-imunidade-total',
-      reason: 'A união da Artepillina-C da própolis verde com os bioflavonoides do mel puro cria uma barreira biológica natural.'
+      title: 'Aumentar Imunidade & Defesa',
+      subtitle: 'Enzimas ativas e flavonoides do Cerrado Goiano.',
+      recommendedProductId: 'mel-pote-1000g',
+      reason: 'O mel silvestre cru de 1kg mantém todas as enzimas vivas e nutrientes que auxiliam na defesa biológica natural do organismo.'
     },
     {
       id: 'energia',
       icon: Zap,
-      title: 'Energia Limpa & Pré-Treino',
-      subtitle: 'Glicose e frutose naturais de rápida absorção muscular.',
-      recommendedProductId: 'mel-silvestre-cerrado',
-      reason: 'Substitui géis sintéticos de carboidrato com índice glicêmico equilibrado e sem causar desconforto estomacal.'
+      title: 'Energia Pré-Treino & Esporte',
+      subtitle: 'Carboidrato natural de rápida absorção muscular.',
+      recommendedProductId: 'mel-bisnaga-280g',
+      reason: 'A bisnaga dosadora de 280g é prática para carregar na mochila, cicloturismo ou academia, fornecendo energia limpa imediata.'
     },
     {
-      id: 'garganta',
+      id: 'mesa',
       icon: Smile,
-      title: 'Alívio de Garganta & Respiração',
-      subtitle: 'Acalmar tosse seca, pigarro e rouquidão.',
-      recommendedProductId: 'composto-mel-propolis-spray',
-      reason: 'Ação anestésica natural e emoliente das vias aéreas com guaco e agrião fitoterápicos.'
+      title: 'Mesa de Café & Frutas',
+      subtitle: 'Praticidade diária para toda a família.',
+      recommendedProductId: 'mel-frasco-500g',
+      reason: 'O frasco dosador de 500g tem formato ergonômico perfeito para a mesa, adoçando frutas, panquecas e queijos sem sujar a mesa.'
     },
     {
       id: 'familia',
       icon: Heart,
-      title: 'Trocar Açúcar da Família',
-      subtitle: 'Saúde na rotina diária e culinária saudável.',
+      title: 'Substituir Açúcar com Economia',
+      subtitle: 'Estoque para a casa com Frete Grátis Brasil.',
       recommendedProductId: 'combo-familia-3x1kg',
-      reason: 'Economia máxima em 3kg com frete grátis para adoçar sucos, cafés, bolos e iogurtes com nutrientes vivos.'
+      reason: 'Combo mais econômico da loja com 3kg de mel puro e Frete Grátis para adoçar sucos, bolos e receitas saudáveis.'
     }
   ];
 

@@ -26,8 +26,8 @@ export default function ReviewsSection() {
       city: "Anápolis - GO",
       rating: 5,
       date: "Há 2 semanas",
-      product: "Extrato de Própolis Verde + Spray",
-      text: "Como médica, sempre indico própolis verde de boa procedência. A concentração desse extrato é excelente, arde na medida certa mostrando a presença da Artepillina-C. O spray salvou minha garganta nos plantões.",
+      product: "Mel Silvestre Bisnaga 280g",
+      text: "A bisnaga dosadora é excelente para carregar para o consultório. Não pinga e não suja nada. O sabor é autêntico, sem aquele gosto artificial de açúcar caramelizado. Recomendo a todos os meus pacientes.",
       verified: true
     },
     {
@@ -35,8 +35,8 @@ export default function ReviewsSection() {
       city: "São Paulo - SP",
       rating: 5,
       date: "Há 3 semanas",
-      product: "Favo de Mel 350g em Caixa",
-      text: "O favo é espetacular! Coloquei numa tábua de queijos brie e gorgonzola para os amigos e foi o comentário da noite. Cera macia, mel escorrendo perfeito. Virei cliente fiel da BR Apicultura.",
+      product: "Mel Silvestre Balde 1.440g",
+      text: "Comprei o balde de 1,44kg para fazer granolas e usar na cozinha. O rendimento é fantástico e o custo-benefício é imbatível para um mel puro de verdade. Chegou em São Paulo perfeitamente protegido.",
       verified: true
     }
   ];

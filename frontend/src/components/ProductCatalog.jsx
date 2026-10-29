@@ -8,11 +8,10 @@ export default function ProductCatalog({ onAddToCart }) {
   const [searchQuery, setSearchQuery] = useState('');
 
   const categories = [
-    { id: 'all', label: 'Todos os Produtos' },
-    { id: 'mel', label: '🍯 Mel Silvestre (5 Tamanhos)' },
-    { id: 'favo', label: '🐝 Favos Puros' },
-    { id: 'propolis', label: '🌿 Própolis & Imunidade' },
-    { id: 'kits', label: '🎁 Kits com Desconto' },
+    { id: 'all', label: 'Todas as Embalagens' },
+    { id: 'individuais', label: '🍯 Bisnagas & Frascos (280g e 500g)' },
+    { id: 'potes', label: '✨ Potes Clássicos (700g e 1 kg)' },
+    { id: 'economicos', label: '📦 Balde & Combos (1.44kg e 3kg)' },
   ];
 
   const filteredProducts = useMemo(() => {
@@ -37,10 +36,10 @@ export default function ProductCatalog({ onAddToCart }) {
             <span>Colheita Artesanal & Fresca</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
-            Nossos Produtos das Abelhas do Cerrado
+            Nossas Embalagens de Mel Silvestre Puro
           </h2>
           <p className="text-base text-stone-600">
-            Cada embalagem é envasada com carinho e inspeção em nossa Unidade de Processamento em Goiânia. Escolha a quantidade ideal para seu consumo ou presente.
+            Cada frasco e pote é envasado a frio com inspeção e carinho em nossa Unidade de Processamento em Goiânia. Escolha a embalagem ideal para sua rotina.
           </p>
         </div>
 
@@ -68,7 +67,7 @@ export default function ProductCatalog({ onAddToCart }) {
             <Search className="w-4 h-4 text-stone-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
             <input
               type="text"
-              placeholder="Buscar mel, favo, própolis..."
+              placeholder="Buscar tamanho (280g, 500g, 700g, 1kg...)"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-10 pr-4 py-2.5 bg-white border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-amber-400 shadow-xs"

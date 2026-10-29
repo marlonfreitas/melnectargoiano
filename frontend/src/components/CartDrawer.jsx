@@ -124,7 +124,7 @@ export default function CartDrawer({
                 </div>
                 <h4 className="font-bold text-stone-900 text-base">Seu carrinho está vazio</h4>
                 <p className="text-xs text-stone-500 max-w-xs mx-auto">
-                  Adicione nossos potes de Mel Silvestre, Favos ou Própolis para experimentar o verdadeiro sabor de Goiás.
+                  Adicione nossas embalagens de Mel Silvestre Puro Néctar Goiano para experimentar o verdadeiro sabor de Goiás.
                 </p>
                 <button
                   onClick={onClose}
