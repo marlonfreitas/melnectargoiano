@@ -1,11 +1,25 @@
 import React, { useState, useMemo } from 'react';
 import ProductCard from './ProductCard';
 import { PRODUCTS } from '../data/products';
-import { Search, Sparkles, Filter } from 'lucide-react';
+import { Search, Sparkles, Filter, ShoppingBag } from 'lucide-react';
 
 export default function ProductCatalog({ onAddToCart }) {
   const [activeCategory, setActiveCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
+
+  const handleQuickAdd = (productId) => {
+    const prod = PRODUCTS.find((p) => p.id === productId);
+    if (!prod) return;
+    const v = prod.variants[0];
+    onAddToCart({
+      id: `${prod.id}-${v.weight}`,
+      productId: prod.id,
+      name: prod.name,
+      variant: v,
+      image: prod.images[v.weight] || Object.values(prod.images)[0],
+      price: v.price
+    });
+  };
 
   const categories = [
     { id: 'all', label: 'Todas as Embalagens' },
@@ -108,56 +122,127 @@ export default function ProductCatalog({ onAddToCart }) {
 
         {/* Bottom Banner inside Catalog: Packaging Breakdown */}
         <div id="tamanhos" className="mt-16 bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 rounded-3xl p-6 sm:p-10 text-stone-950 shadow-xl relative overflow-hidden">
-          <div className="relative z-10 max-w-3xl">
-            <span className="px-3 py-1 rounded-full bg-stone-900 text-amber-300 text-xs font-bold uppercase tracking-wide">
-              Guia de Embalagens BR Apicultura
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-stone-950 mt-3 mb-2">
-              Qual tamanho de mel escolher?
-            </h3>
-            <p className="text-sm sm:text-base text-stone-900 mb-6 leading-relaxed">
-              Disponibilizamos 5 tamanhos pensados para cada perfil:
-            </p>
+          <div className="relative z-10 w-full">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+              <div>
+                <span className="px-3.5 py-1 rounded-full bg-stone-950 text-amber-300 text-xs font-bold uppercase tracking-wider inline-block">
+                  Guia de Embalagens BR Apicultura
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-stone-950 mt-3 mb-1">
+                  Qual tamanho de mel escolher?
+                </h3>
+                <p className="text-sm sm:text-base text-stone-900 font-medium">
+                  Disponibilizamos 5 embalagens oficiais envasadas a frio para atender a todas as rotinas:
+                </p>
+              </div>
+              <div className="text-xs text-stone-900 bg-white/40 backdrop-blur-xs px-3.5 py-2 rounded-xl font-semibold shrink-0">
+                🍯 100% Puro &bull; Extraído em Goiânia / GO
+              </div>
+            </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 text-xs">
-              <div className="bg-white/95 p-3 rounded-2xl border border-amber-300 shadow-sm flex flex-col items-center text-center">
-                <div className="h-24 w-full flex items-center justify-center mb-2">
-                  <img src="/products/mel280g.png" alt="Bisnaga 280g" className="max-h-full object-contain drop-shadow" />
+            {/* 5 Cards spanning full width */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 w-full">
+              {/* 280g */}
+              <div className="bg-white rounded-2xl p-4 border border-amber-300 shadow-md flex flex-col justify-between items-center text-center hover:-translate-y-1 transition duration-200">
+                <div className="w-full">
+                  <div className="h-28 w-full flex items-center justify-center mb-2">
+                    <img src="/products/mel280g.png" alt="Mel 280 G" className="max-h-full object-contain drop-shadow" />
+                  </div>
+                  <h4 className="font-extrabold text-stone-900 text-sm">MEL 280 G</h4>
+                  <div className="text-xl font-black text-rose-600 my-1">R$ 13,00</div>
+                  <p className="text-xs text-stone-600 mt-1 leading-snug">Prática para frutas, iogurtes e sem sujeira.</p>
                 </div>
-                <span className="font-bold text-amber-900 block text-sm">280g (Bisnaga)</span>
-                <p className="text-stone-700 mt-1">Prática para frutas, iogurtes e sem sujeira.</p>
+                <button
+                  type="button"
+                  onClick={() => handleQuickAdd('mel-bisnaga-280g')}
+                  className="mt-4 w-full py-2.5 px-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm transition active:scale-95 cursor-pointer"
+                >
+                  <ShoppingBag className="w-3.5 h-3.5" />
+                  <span>COMPRAR</span>
+                </button>
               </div>
 
-              <div className="bg-white/95 p-3 rounded-2xl border border-amber-300 shadow-sm flex flex-col items-center text-center">
-                <div className="h-24 w-full flex items-center justify-center mb-2">
-                  <img src="/products/mel500g.png" alt="Frasco 500g" className="max-h-full object-contain drop-shadow" />
+              {/* 500g */}
+              <div className="bg-white rounded-2xl p-4 border border-amber-300 shadow-md flex flex-col justify-between items-center text-center hover:-translate-y-1 transition duration-200">
+                <div className="w-full">
+                  <div className="h-28 w-full flex items-center justify-center mb-2">
+                    <img src="/products/mel500g.png" alt="Mel 500 G" className="max-h-full object-contain drop-shadow" />
+                  </div>
+                  <h4 className="font-extrabold text-stone-900 text-sm">MEL 500 G</h4>
+                  <div className="text-xl font-black text-rose-600 my-1">R$ 23,00</div>
+                  <p className="text-xs text-stone-600 mt-1 leading-snug">O campeão do café da manhã em família.</p>
                 </div>
-                <span className="font-bold text-amber-900 block text-sm">500g (Frasco)</span>
-                <p className="text-stone-700 mt-1">O campeão do café da manhã em família.</p>
+                <button
+                  type="button"
+                  onClick={() => handleQuickAdd('mel-frasco-500g')}
+                  className="mt-4 w-full py-2.5 px-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm transition active:scale-95 cursor-pointer"
+                >
+                  <ShoppingBag className="w-3.5 h-3.5" />
+                  <span>COMPRAR</span>
+                </button>
               </div>
 
-              <div className="bg-white/95 p-3 rounded-2xl border border-amber-300 shadow-sm flex flex-col items-center text-center">
-                <div className="h-24 w-full flex items-center justify-center mb-2">
-                  <img src="/products/mel700g.png" alt="Pote 700g" className="max-h-full object-contain drop-shadow" />
+              {/* 700g */}
+              <div className="bg-white rounded-2xl p-4 border border-amber-300 shadow-md flex flex-col justify-between items-center text-center hover:-translate-y-1 transition duration-200">
+                <div className="w-full">
+                  <div className="h-28 w-full flex items-center justify-center mb-2">
+                    <img src="/products/mel700g.png" alt="Mel 700 G" className="max-h-full object-contain drop-shadow" />
+                  </div>
+                  <h4 className="font-extrabold text-stone-900 text-sm">MEL 700 G</h4>
+                  <div className="text-xl font-black text-rose-600 my-1">R$ 32,00</div>
+                  <p className="text-xs text-stone-600 mt-1 leading-snug">Pote clássico generoso para quem ama mel puro.</p>
                 </div>
-                <span className="font-bold text-amber-900 block text-sm">700g (Pote)</span>
-                <p className="text-stone-700 mt-1">Pote clássico generoso para quem ama mel puro.</p>
+                <button
+                  type="button"
+                  onClick={() => handleQuickAdd('mel-pote-700g')}
+                  className="mt-4 w-full py-2.5 px-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm transition active:scale-95 cursor-pointer"
+                >
+                  <ShoppingBag className="w-3.5 h-3.5" />
+                  <span>COMPRAR</span>
+                </button>
               </div>
 
-              <div className="bg-white/95 p-3 rounded-2xl border border-amber-300 shadow-sm flex flex-col items-center text-center">
-                <div className="h-24 w-full flex items-center justify-center mb-2">
-                  <img src="/products/mel1000g.png" alt="Pote 1kg" className="max-h-full object-contain drop-shadow" />
+              {/* 1000g */}
+              <div className="bg-white rounded-2xl p-4 border-2 border-stone-900 shadow-lg flex flex-col justify-between items-center text-center relative hover:-translate-y-1 transition duration-200">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-stone-900 text-amber-300 text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full shadow-xs">
+                  Mais Vendido
                 </div>
-                <span className="font-bold text-amber-900 block text-sm">1.000g (1 kg)</span>
-                <p className="text-stone-700 mt-1">Excelente custo-benefício diário.</p>
+                <div className="w-full pt-1">
+                  <div className="h-28 w-full flex items-center justify-center mb-2">
+                    <img src="/products/mel1000g.png" alt="Mel 1 KG" className="max-h-full object-contain drop-shadow" />
+                  </div>
+                  <h4 className="font-extrabold text-stone-900 text-sm">MEL 1 KG</h4>
+                  <div className="text-xl font-black text-rose-600 my-1">R$ 45,00</div>
+                  <p className="text-xs text-stone-600 mt-1 leading-snug">Excelente custo-benefício diário familiar.</p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => handleQuickAdd('mel-pote-1000g')}
+                  className="mt-4 w-full py-2.5 px-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm transition active:scale-95 cursor-pointer"
+                >
+                  <ShoppingBag className="w-3.5 h-3.5" />
+                  <span>COMPRAR</span>
+                </button>
               </div>
 
-              <div className="bg-white/95 p-3 rounded-2xl border border-amber-300 shadow-sm flex flex-col items-center text-center">
-                <div className="h-24 w-full flex items-center justify-center mb-2">
-                  <img src="/products/mel1440g.png" alt="Balde 1.44kg" className="max-h-full object-contain drop-shadow" />
+              {/* 1440g */}
+              <div className="bg-white rounded-2xl p-4 border border-amber-300 shadow-md flex flex-col justify-between items-center text-center hover:-translate-y-1 transition duration-200">
+                <div className="w-full">
+                  <div className="h-28 w-full flex items-center justify-center mb-2">
+                    <img src="/products/mel1440g.png" alt="Mel 1,44 KG" className="max-h-full object-contain drop-shadow" />
+                  </div>
+                  <h4 className="font-extrabold text-stone-900 text-sm">MEL 1,44 KG</h4>
+                  <div className="text-xl font-black text-rose-600 my-1">R$ 60,00</div>
+                  <p className="text-xs text-stone-600 mt-1 leading-snug">Para culinária, chás e economia máxima.</p>
                 </div>
-                <span className="font-bold text-amber-900 block text-sm">1.440g (Balde)</span>
-                <p className="text-stone-700 mt-1">Para culinária, chás e economia máxima.</p>
+                <button
+                  type="button"
+                  onClick={() => handleQuickAdd('mel-balde-1440g')}
+                  className="mt-4 w-full py-2.5 px-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm transition active:scale-95 cursor-pointer"
+                >
+                  <ShoppingBag className="w-3.5 h-3.5" />
+                  <span>COMPRAR</span>
+                </button>
               </div>
             </div>
           </div>
