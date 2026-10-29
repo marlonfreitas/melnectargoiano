@@ -1,5 +1,5 @@
 import React from 'react';
-import { Factory, Droplets, ShieldCheck, Sparkles, CheckCircle2, Camera, ArrowRight, MapPin } from 'lucide-react';
+import { Factory, Droplets, ShieldCheck, Sparkles, CheckCircle2, Camera, ArrowRight, MapPin, Eye } from 'lucide-react';
 import { STORE_INFO } from '../data/products';
 
 export default function FacilityProcessSection() {
@@ -35,12 +35,14 @@ export default function FacilityProcessSection() {
     }
   ];
 
-  // Placeholder slots for facility and packaging photos (user will add real photos here)
+  // Facility and packaging photos (Slot 1 now has real photo)
   const facilityPhotoSlots = [
     {
       title: "Fachada & Ponto de Retirada",
       subtitle: "Rua C, 287 - Goiânia / GO",
-      hint: "Foto da entrada ou fachada da BR Apicultura"
+      hint: "Foto da entrada ou fachada da BR Apicultura",
+      image: "/fachada_brapicultura.jpg",
+      tag: "Foto Real da Fachada"
     },
     {
       title: "Sala de Decantação e Inox",
@@ -132,7 +134,7 @@ export default function FacilityProcessSection() {
           </div>
         </div>
 
-        {/* Part 2: Facility Photo Showcase (Slots preparados para as fotos reais) */}
+        {/* Part 2: Facility Photo Showcase */}
         <div className="bg-gradient-to-b from-stone-800/80 to-stone-850/90 border border-stone-700 rounded-3xl p-6 sm:p-10 shadow-2xl">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 pb-6 border-b border-stone-700">
             <div>
@@ -155,41 +157,76 @@ export default function FacilityProcessSection() {
 
           {/* 4 Photo Slots Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {facilityPhotoSlots.map((slot, idx) => (
-              <div
-                key={idx}
-                className="bg-stone-900/90 border-2 border-dashed border-stone-700 hover:border-amber-400/80 rounded-2xl p-5 flex flex-col justify-between items-center text-center transition duration-300 group min-h-[260px]"
-              >
-                {/* Photo Placeholder Area */}
-                <div className="w-full flex-1 flex flex-col items-center justify-center p-4 rounded-xl bg-stone-800/60 border border-stone-700/60 group-hover:bg-amber-500/10 transition">
-                  <div className="w-12 h-12 rounded-full bg-stone-700/80 group-hover:bg-amber-500/20 text-stone-400 group-hover:text-amber-400 flex items-center justify-center mb-3 transition">
-                    <Camera className="w-6 h-6" />
-                  </div>
-                  <span className="text-[11px] font-bold text-stone-300 uppercase tracking-wide">
-                    Espaço para Foto {idx + 1}
-                  </span>
-                  <p className="text-[10px] text-stone-500 mt-1 italic max-w-[180px]">
-                    {slot.hint}
-                  </p>
-                </div>
+            {facilityPhotoSlots.map((slot, idx) => {
+              if (slot.image) {
+                return (
+                  <div
+                    key={idx}
+                    className="bg-stone-900 border-2 border-amber-400/70 hover:border-amber-400 rounded-2xl p-3 flex flex-col justify-between transition duration-300 group min-h-[260px] shadow-xl hover:-translate-y-1"
+                  >
+                    {/* Real Photo with Tag */}
+                    <div className="relative w-full h-44 rounded-xl overflow-hidden bg-stone-950 flex items-center justify-center">
+                      <img
+                        src={slot.image}
+                        alt={slot.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      <div className="absolute top-2 left-2 bg-stone-950/85 backdrop-blur-xs text-amber-300 text-[10px] font-black uppercase px-2 py-0.5 rounded-md border border-amber-400/40 shadow-xs flex items-center gap-1">
+                        <CheckCircle2 className="w-3 h-3 text-emerald-400" />
+                        <span>{slot.tag || "Foto Real"}</span>
+                      </div>
+                    </div>
 
-                {/* Card Legend */}
-                <div className="pt-3 w-full text-left">
-                  <h5 className="font-bold text-sm text-white truncate">
-                    {slot.title}
-                  </h5>
-                  <p className="text-[11px] text-amber-400">
-                    {slot.subtitle}
-                  </p>
+                    {/* Card Legend */}
+                    <div className="pt-3 w-full text-left px-1">
+                      <h5 className="font-bold text-sm text-white truncate group-hover:text-amber-300 transition-colors">
+                        {slot.title}
+                      </h5>
+                      <p className="text-[11px] text-amber-400 font-medium">
+                        {slot.subtitle}
+                      </p>
+                    </div>
+                  </div>
+                );
+              }
+
+              return (
+                <div
+                  key={idx}
+                  className="bg-stone-900/90 border-2 border-dashed border-stone-700 hover:border-amber-400/80 rounded-2xl p-5 flex flex-col justify-between items-center text-center transition duration-300 group min-h-[260px]"
+                >
+                  {/* Photo Placeholder Area */}
+                  <div className="w-full flex-1 flex flex-col items-center justify-center p-4 rounded-xl bg-stone-800/60 border border-stone-700/60 group-hover:bg-amber-500/10 transition">
+                    <div className="w-12 h-12 rounded-full bg-stone-700/80 group-hover:bg-amber-500/20 text-stone-400 group-hover:text-amber-400 flex items-center justify-center mb-3 transition">
+                      <Camera className="w-6 h-6" />
+                    </div>
+                    <span className="text-[11px] font-bold text-stone-300 uppercase tracking-wide">
+                      Espaço para Foto {idx + 1}
+                    </span>
+                    <p className="text-[10px] text-stone-500 mt-1 italic max-w-[180px]">
+                      {slot.hint}
+                    </p>
+                  </div>
+
+                  {/* Card Legend */}
+                  <div className="pt-3 w-full text-left">
+                    <h5 className="font-bold text-sm text-white truncate">
+                      {slot.title}
+                    </h5>
+                    <p className="text-[11px] text-amber-400">
+                      {slot.subtitle}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Bottom callout */}
           <div className="mt-8 pt-6 border-t border-stone-700 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="text-xs text-stone-400 text-center sm:text-left">
-              💡 <em>Em breve adicionaremos a galeria fotográfica completa com fotos reais do nosso espaço e dos equipamentos em funcionamento.</em>
+              📍 <strong>Unidade Oficial em Goiânia:</strong> Visitas para retirada no local mediante agendamento ou pedido direto na loja virtual.
             </div>
             
             <a
