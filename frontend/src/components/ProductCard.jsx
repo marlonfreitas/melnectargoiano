@@ -1,9 +1,22 @@
 import React, { useState } from 'react';
-import { ShieldCheck, ShoppingBag, Check, Sparkles, Info } from 'lucide-react';
+import { ShieldCheck, ShoppingBag, Check, Truck, ChevronDown, ChevronUp, MapPin } from 'lucide-react';
+import { formatCEP } from '../data/shippingService';
 
-export default function ProductCard({ product, onAddToCart, onBuyNow }) {
+export default function ProductCard({ 
+  product, 
+  onAddToCart, 
+  userCep = '', 
+  onCalculateShipping, 
+  shippingAddress, 
+  shippingOptions = [],
+  onOpenCart 
+}) {
   const [selectedVariantIdx, setSelectedVariantIdx] = useState(0);
   const [addedAnimation, setAddedAnimation] = useState(false);
+  const [showShippingCalc, setShowShippingCalc] = useState(false);
+  const [cepInput, setCepInput] = useState(userCep);
+  const [calcLoading, setCalcLoading] = useState(false);
+  const [calcError, setCalcError] = useState('');
 
   const currentVariant = product.variants[selectedVariantIdx] || product.variants[0];
   const currentImage = product.images[currentVariant.weight] || Object.values(product.images)[0];
@@ -20,6 +33,18 @@ export default function ProductCard({ product, onAddToCart, onBuyNow }) {
 
     setAddedAnimation(true);
     setTimeout(() => setAddedAnimation(false), 1500);
+  };
+
+  const handleCalculate = async (e) => {
+    if (e) e.preventDefault();
+    if (!onCalculateShipping) return;
+    setCalcError('');
+    setCalcLoading(true);
+    const res = await onCalculateShipping(cepInput);
+    setCalcLoading(false);
+    if (!res.success) {
+      setCalcError(res.error || 'CEP não encontrado');
+    }
   };
 
   return (
@@ -131,6 +156,69 @@ export default function ProductCard({ product, onAddToCart, onBuyNow }) {
           </span>
         </div>
 
+        {/* Shipping Simulator Inline */}
+        <div className="border-t border-stone-100 pt-2.5">
+          <button
+            type="button"
+            onClick={() => setShowShippingCalc(!showShippingCalc)}
+            className="w-full flex items-center justify-between text-xs text-stone-600 hover:text-amber-800 transition py-1"
+          >
+            <span className="flex items-center gap-1.5 font-medium">
+              <Truck className="w-3.5 h-3.5 text-amber-600" />
+              <span>Simular frete e prazo para este produto</span>
+            </span>
+            {showShippingCalc ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+          </button>
+
+          {showShippingCalc && (
+            <div className="mt-2 p-3 bg-stone-50 rounded-xl border border-stone-200 space-y-2 text-xs">
+              <form onSubmit={handleCalculate} className="flex gap-2">
+                <input
+                  type="text"
+                  placeholder="00000-000"
+                  maxLength={9}
+                  value={cepInput}
+                  onChange={(e) => setCepInput(formatCEP(e.target.value))}
+                  className="w-full px-3 py-1.5 bg-white border border-stone-300 rounded-lg text-xs focus:outline-none focus:ring-1 focus:ring-amber-500 font-mono"
+                />
+                <button
+                  type="submit"
+                  disabled={calcLoading}
+                  className="px-3 py-1.5 bg-stone-900 text-white rounded-lg font-bold hover:bg-stone-800 transition shrink-0 cursor-pointer text-xs"
+                >
+                  {calcLoading ? '...' : 'Calcular'}
+                </button>
+              </form>
+
+              {calcError && <p className="text-[11px] text-rose-600">{calcError}</p>}
+
+              {shippingAddress && shippingOptions.length > 0 && (
+                <div className="space-y-1.5 pt-1 border-t border-stone-200">
+                  <div className="flex items-center gap-1 text-[11px] font-bold text-stone-700">
+                    <MapPin className="w-3 h-3 text-amber-600" />
+                    <span>Envio para {shippingAddress.city}/{shippingAddress.state}:</span>
+                  </div>
+                  {shippingOptions.map((opt) => (
+                    <div key={opt.id} className="flex items-center justify-between text-[11px] py-1 border-b border-stone-200/60 last:border-none">
+                      <span className="text-stone-700">{opt.name}</span>
+                      <div className="text-right">
+                        <span className="font-bold text-stone-900">
+                          {opt.price === 0 ? (
+                            <strong className="text-emerald-700">GRÁTIS</strong>
+                          ) : (
+                            `R$ ${opt.price.toFixed(2).replace('.', ',')}`
+                          )}
+                        </span>
+                        <span className="text-[10px] text-stone-500 block">{opt.estimate}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+
         {/* Action Button */}
         <button
           onClick={handleAdd}
@@ -157,4 +245,3 @@ export default function ProductCard({ product, onAddToCart, onBuyNow }) {
     </div>
   );
 }
-

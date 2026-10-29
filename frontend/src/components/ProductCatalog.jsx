@@ -3,7 +3,14 @@ import ProductCard from './ProductCard';
 import { PRODUCTS } from '../data/products';
 import { Search, Sparkles, Filter, ShoppingBag } from 'lucide-react';
 
-export default function ProductCatalog({ onAddToCart }) {
+export default function ProductCatalog({ 
+  onAddToCart,
+  userCep = '',
+  onCalculateShipping,
+  shippingAddress,
+  shippingOptions = [],
+  onOpenCart
+}) {
   const [activeCategory, setActiveCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -115,6 +122,11 @@ export default function ProductCatalog({ onAddToCart }) {
                 key={product.id}
                 product={product}
                 onAddToCart={onAddToCart}
+                userCep={userCep}
+                onCalculateShipping={onCalculateShipping}
+                shippingAddress={shippingAddress}
+                shippingOptions={shippingOptions}
+                onOpenCart={onOpenCart}
               />
             ))}
           </div>
@@ -252,4 +264,3 @@ export default function ProductCatalog({ onAddToCart }) {
     </section>
   );
 }
-

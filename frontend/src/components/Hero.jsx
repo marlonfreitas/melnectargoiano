@@ -69,30 +69,82 @@ export default function Hero({ onExplore }) {
               </a>
             </div>
 
-            {/* Official Certification Badges */}
-            <div className="pt-3 flex flex-wrap items-center justify-center lg:justify-start gap-2.5">
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white border border-stone-200/90 shadow-xs">
-                <img src="/selo_sie.png" alt="Selo SIE 1718/26 Goiás" className="h-7 w-auto object-contain" />
-                <div className="text-left text-[11px] leading-tight">
-                  <span className="font-bold text-stone-900 block">SIE 1718/26</span>
-                  <span className="text-stone-500">Inspeção Estadual GO</span>
-                </div>
+            {/* Official Certification Badges - Destaque Visual Ampliado */}
+            <div className="pt-4 space-y-2.5">
+              <div className="flex items-center justify-center lg:justify-start gap-1.5 text-xs font-semibold text-stone-600">
+                <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>Certificações & Selos Oficiais de Qualidade:</span>
               </div>
 
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white border border-stone-200/90 shadow-xs">
-                <img src="/selo_senai.png" alt="Selo Alimento Confiável SENAI" className="h-7 w-auto object-contain" />
-                <div className="text-left text-[11px] leading-tight">
-                  <span className="font-bold text-stone-900 block">SENAI</span>
-                  <span className="text-stone-500">Alimento Confiável</span>
-                </div>
-              </div>
+              <div className="flex flex-wrap items-stretch justify-center lg:justify-start gap-3">
+                {/* SIE */}
+                <a
+                  href="#certificacoes"
+                  className="flex items-center gap-3.5 p-3 sm:px-4 sm:py-3 rounded-2xl bg-white border border-stone-200 shadow-sm hover:border-amber-400 hover:shadow-md transition-all group"
+                  title="Ver certificação SIE 1718/26 - Agrodefesa Goiás"
+                >
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 bg-stone-50 rounded-xl p-1.5 flex items-center justify-center border border-stone-100 shrink-0 group-hover:scale-105 transition-transform">
+                    <img
+                      src="/selo_sie.png"
+                      alt="Selo SIE 1718/26 Goiás"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <div className="text-left leading-tight">
+                    <span className="font-bold text-sm text-stone-900 block group-hover:text-amber-700 transition-colors">
+                      SIE 1718/26
+                    </span>
+                    <span className="text-xs text-stone-500 block mt-0.5">
+                      Inspeção Estadual GO
+                    </span>
+                  </div>
+                </a>
 
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white border border-stone-200/90 shadow-xs">
-                <img src="/selo_inpi.png" alt="Marca Registrada INPI" className="h-7 w-auto object-contain" />
-                <div className="text-left text-[11px] leading-tight">
-                  <span className="font-bold text-stone-900 block">Marca Registrada</span>
-                  <span className="text-stone-500">® no INPI</span>
-                </div>
+                {/* SENAI */}
+                <a
+                  href="#certificacoes"
+                  className="flex items-center gap-3.5 p-3 sm:px-4 sm:py-3 rounded-2xl bg-white border border-stone-200 shadow-sm hover:border-amber-400 hover:shadow-md transition-all group"
+                  title="Ver certificação SENAI Alimento Confiável"
+                >
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 bg-stone-50 rounded-xl p-1.5 flex items-center justify-center border border-stone-100 shrink-0 group-hover:scale-105 transition-transform">
+                    <img
+                      src="/selo_senai.png"
+                      alt="Selo Alimento Confiável SENAI"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <div className="text-left leading-tight">
+                    <span className="font-bold text-sm text-stone-900 block group-hover:text-amber-700 transition-colors">
+                      SENAI
+                    </span>
+                    <span className="text-xs text-stone-500 block mt-0.5">
+                      Alimento Confiável
+                    </span>
+                  </div>
+                </a>
+
+                {/* INPI */}
+                <a
+                  href="#certificacoes"
+                  className="flex items-center gap-3.5 p-3 sm:px-4 sm:py-3 rounded-2xl bg-white border border-stone-200 shadow-sm hover:border-amber-400 hover:shadow-md transition-all group"
+                  title="Ver registro oficial no INPI"
+                >
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 bg-stone-50 rounded-xl p-1.5 flex items-center justify-center border border-stone-100 shrink-0 group-hover:scale-105 transition-transform">
+                    <img
+                      src="/selo_inpi.png"
+                      alt="Marca Registrada INPI"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <div className="text-left leading-tight">
+                    <span className="font-bold text-sm text-stone-900 block group-hover:text-amber-700 transition-colors">
+                      Marca Registrada
+                    </span>
+                    <span className="text-xs text-stone-500 block mt-0.5">
+                      ® no INPI
+                    </span>
+                  </div>
+                </a>
               </div>
             </div>
 
@@ -169,4 +221,3 @@ export default function Hero({ onExplore }) {
     </section>
   );
 }
-

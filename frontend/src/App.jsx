@@ -14,9 +14,10 @@ import CartDrawer from './components/CartDrawer';
 import CheckoutModal from './components/CheckoutModal';
 import WhatsAppFloatingButton from './components/WhatsAppFloatingButton';
 import { STORE_INFO } from './data/products';
+import { lookupAddressByCEP, calculateShippingOptions, formatCEP } from './data/shippingService';
 
 export default function App() {
-  // Load cart from localStorage or start empty
+  // Cart state persisted
   const [cart, setCart] = useState(() => {
     try {
       const saved = localStorage.getItem('nectar_cart');
@@ -29,7 +30,18 @@ export default function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [coupon, setCoupon] = useState(null);
-  const [shippingMethod, setShippingMethod] = useState('delivery'); // 'delivery' | 'pickup'
+
+  // Shipping & CEP state
+  const [userCep, setUserCep] = useState(() => {
+    try {
+      return localStorage.getItem('nectar_user_cep') || '';
+    } catch {
+      return '';
+    }
+  });
+  const [shippingAddress, setShippingAddress] = useState(null);
+  const [shippingOptions, setShippingOptions] = useState([]);
+  const [selectedShipping, setSelectedShipping] = useState(null);
 
   // Persist cart
   useEffect(() => {
@@ -39,6 +51,47 @@ export default function App() {
       console.error(e);
     }
   }, [cart]);
+
+  // Subtotal calculation
+  const subtotal = cart.reduce((sum, it) => sum + it.price * it.quantity, 0);
+
+  // Recalculate shipping options whenever subtotal changes or CEP changes
+  useEffect(() => {
+    if (shippingAddress) {
+      const options = calculateShippingOptions(shippingAddress, subtotal);
+      setShippingOptions(options);
+
+      // Keep current selection or default to first/cheapest
+      if (options.length > 0) {
+        setSelectedShipping((prev) => {
+          if (!prev) return options[0];
+          const found = options.find((o) => o.id === prev.id);
+          return found || options[0];
+        });
+      }
+    }
+  }, [subtotal, shippingAddress]);
+
+  // Handle CEP calculation from anywhere (Card, Cart, Checkout)
+  const handleCalculateShipping = async (cepToLookup) => {
+    try {
+      const formatted = formatCEP(cepToLookup);
+      setUserCep(formatted);
+      localStorage.setItem('nectar_user_cep', formatted);
+
+      const addr = await lookupAddressByCEP(formatted);
+      setShippingAddress(addr);
+
+      const options = calculateShippingOptions(addr, subtotal);
+      setShippingOptions(options);
+      if (options.length > 0) {
+        setSelectedShipping(options[0]);
+      }
+      return { success: true, address: addr, options };
+    } catch (err) {
+      return { success: false, error: err.message };
+    }
+  };
 
   // Cart Handlers
   const handleAddToCart = (productPayload) => {
@@ -77,7 +130,6 @@ export default function App() {
   };
 
   // Calculations for checkout
-  const subtotal = cart.reduce((sum, it) => sum + it.price * it.quantity, 0);
   let discount = 0;
   if (coupon) {
     if (coupon.type === 'percentage') {
@@ -86,12 +138,9 @@ export default function App() {
       discount = coupon.value;
     }
   }
-  const shippingCost =
-    shippingMethod === 'pickup'
-      ? 0
-      : subtotal >= STORE_INFO.freeShippingThreshold
-      ? 0
-      : 19.90;
+
+  // Shipping cost based on selected shipping option
+  const shippingCost = selectedShipping ? selectedShipping.price : (subtotal >= STORE_INFO.freeShippingThreshold ? 0 : 19.90);
   const grandTotal = Math.max(0, subtotal - discount + shippingCost);
   const totalCartCount = cart.reduce((sum, it) => sum + it.quantity, 0);
 
@@ -114,7 +163,14 @@ export default function App() {
 
         <TrustBadges />
 
-        <ProductCatalog onAddToCart={handleAddToCart} />
+        <ProductCatalog 
+          onAddToCart={handleAddToCart}
+          userCep={userCep}
+          onCalculateShipping={handleCalculateShipping}
+          shippingAddress={shippingAddress}
+          shippingOptions={shippingOptions}
+          onOpenCart={() => setIsCartOpen(true)}
+        />
 
         <HealthQuiz onAddToCart={handleAddToCart} />
 
@@ -135,6 +191,7 @@ export default function App() {
       {/* Floating Elements & Modals */}
       <WhatsAppFloatingButton />
 
+      {/* Cart Drawer */}
       <CartDrawer
         isOpen={isCartOpen}
         onClose={() => setIsCartOpen(false)}
@@ -147,19 +204,34 @@ export default function App() {
         }}
         coupon={coupon}
         onApplyCoupon={setCoupon}
-        shippingMethod={shippingMethod}
-        onChangeShippingMethod={setShippingMethod}
+        userCep={userCep}
+        onCalculateShipping={handleCalculateShipping}
+        shippingAddress={shippingAddress}
+        shippingOptions={shippingOptions}
+        selectedShipping={selectedShipping}
+        onSelectShipping={setSelectedShipping}
+        subtotal={subtotal}
+        discount={discount}
+        shippingCost={shippingCost}
+        grandTotal={grandTotal}
       />
 
+      {/* Checkout Modal */}
       <CheckoutModal
         isOpen={isCheckoutOpen}
         onClose={() => setIsCheckoutOpen(false)}
         items={cart}
+        subtotal={subtotal}
         total={grandTotal}
         discount={discount}
         shippingCost={shippingCost}
-        shippingMethod={shippingMethod}
         coupon={coupon}
+        userCep={userCep}
+        onCalculateShipping={handleCalculateShipping}
+        shippingAddress={shippingAddress}
+        shippingOptions={shippingOptions}
+        selectedShipping={selectedShipping}
+        onSelectShipping={setSelectedShipping}
         onOrderCompleted={handleOrderCompleted}
       />
     </div>
