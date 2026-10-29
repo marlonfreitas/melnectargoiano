@@ -470,3 +470,4 @@ Gostaria de confirmar o pedido e receber as instruções para envio!`;
     </div>
   );
 }
+

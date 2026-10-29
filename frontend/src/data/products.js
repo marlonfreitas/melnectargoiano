@@ -9,11 +9,11 @@ export const PRODUCTS = [
     rating: 4.9,
     reviewsCount: 142,
     images: {
-      "280g": "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=800&q=80",
-      "500g": "https://images.unsplash.com/photo-1587049352851-8d4e89133924?auto=format&fit=crop&w=800&q=80",
-      "700g": "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=800&q=80",
-      "1000g": "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=800&q=80",
-      "1440g": "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=800&q=80"
+      "280g": "/products/mel280g.png",
+      "500g": "/products/mel500g.png",
+      "700g": "/products/mel700g.png",
+      "1000g": "/products/mel1000g.png",
+      "1440g": "/products/mel1440g.png"
     },
     // The exact 5 variations from the Nuvemshop store
     variants: [
@@ -109,7 +109,7 @@ export const PRODUCTS = [
     rating: 5.0,
     reviewsCount: 112,
     images: {
-      "kit": "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=800&q=80",
+      "kit": "/products/mel1000g.png",
     },
     variants: [
       { weight: "kit", label: "Kit Completo 3 Itens", price: 98.90, oldPrice: 120.00, popular: true, desc: "Mel 1kg + Própolis Verde + Spray Garganta" }
@@ -131,7 +131,7 @@ export const PRODUCTS = [
     rating: 4.9,
     reviewsCount: 57,
     images: {
-      "3kg": "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=800&q=80",
+      "3kg": "/products/mel1000g.png",
     },
     variants: [
       { weight: "3kg", label: "3 Potes de 1kg (Total 3kg)", price: 179.90, oldPrice: 205.00, popular: true, desc: "Equivale a R$ 59,96 por kg (Super econômico)" }
@@ -158,3 +158,4 @@ export const STORE_INFO = {
   pixBeneficiary: "BR Apicultura & Mel Néctar Goiano Ltda",
   freeShippingThreshold: 150.00
 };
+

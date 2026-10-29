@@ -94,25 +94,35 @@ export default function Hero({ onExplore }) {
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
               {/* Main Card with Amber Glow */}
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/80 bg-gradient-to-b from-amber-100 to-amber-50">
-                <img 
-                  src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=1000&q=80" 
-                  alt="Mel Silvestre Puro Néctar Goiano" 
-                  className="w-full h-96 sm:h-[430px] object-cover hover:scale-105 transition duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
-                  <span className="text-xs font-bold uppercase tracking-wider text-amber-300">Embalagem Clássica 1000g</span>
-                  <h3 className="text-2xl font-bold">Mel Néctar Goiano Silvestre</h3>
-                  <p className="text-xs text-stone-200 mt-1">Textura aveludada, cor âmbar dourada e doçura natural equilibrada.</p>
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/80 bg-gradient-to-b from-amber-100 via-amber-50 to-stone-900 flex flex-col justify-between">
+                {/* Real Product Image Showcase */}
+                <div className="relative z-10 w-full flex items-center justify-center pt-8 pb-4 px-6 h-72 sm:h-80">
+                  <div className="absolute inset-0 bg-radial from-amber-400/25 to-transparent blur-xl pointer-events-none"></div>
+                  <img 
+                    src="/products/mel1000g.png" 
+                    alt="Mel Silvestre Puro Néctar Goiano 1000g - Embalagem Real" 
+                    className="max-h-full object-contain drop-shadow-2xl hover:scale-105 transition duration-500"
+                  />
+                </div>
+
+                <div className="relative z-10 bg-gradient-to-t from-stone-950 via-stone-950/95 to-transparent flex flex-col justify-end p-6 text-white pt-6">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-[10px] font-extrabold uppercase tracking-wider bg-amber-500 text-stone-950 px-2 py-0.5 rounded-md">
+                      Foto Real Oficial
+                    </span>
+                    <span className="text-xs font-bold text-amber-300">Pote de 1.000g (1 kg)</span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold">Mel Néctar Goiano Silvestre</h3>
+                  <p className="text-xs text-stone-200 mt-1">Colheita pura do Cerrado de Goiás, envasado a frio pela BR Apicultura.</p>
                   
                   <div className="mt-3 flex items-center justify-between pt-3 border-t border-white/20">
                     <div>
-                      <span className="text-xs text-stone-300 block">A partir de</span>
+                      <span className="text-xs text-stone-300 block">5 Tamanhos a partir de</span>
                       <span className="text-2xl font-extrabold text-amber-400">R$ 24,90</span>
                     </div>
                     <a
                       href="#produtos"
-                      className="px-4 py-2 rounded-lg bg-amber-500 hover:bg-amber-400 text-stone-950 text-xs font-bold transition"
+                      className="px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 text-xs font-bold transition shadow-md active:scale-95"
                     >
                       Escolher Tamanho
                     </a>
@@ -150,3 +160,4 @@ export default function Hero({ onExplore }) {
     </section>
   );
 }
+

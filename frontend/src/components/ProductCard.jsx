@@ -25,11 +25,11 @@ export default function ProductCard({ product, onAddToCart, onBuyNow }) {
   return (
     <div className="group bg-white rounded-2xl border border-stone-200/90 hover:border-amber-400 overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
       {/* Product Image & Badges */}
-      <div className="relative aspect-square w-full overflow-hidden bg-amber-50">
+      <div className="relative aspect-square w-full overflow-hidden bg-gradient-to-b from-stone-50 via-amber-50/40 to-amber-100/25 flex items-center justify-center p-3 sm:p-4">
         <img
           src={currentImage}
           alt={`${product.name} - ${currentVariant.label}`}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          className="w-full h-full object-contain drop-shadow-md group-hover:scale-108 transition-transform duration-500"
           loading="lazy"
         />
 
@@ -147,3 +147,4 @@ export default function ProductCard({ product, onAddToCart, onBuyNow }) {
     </div>
   );
 }
+

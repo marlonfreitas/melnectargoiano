@@ -142,7 +142,7 @@ export default function CartDrawer({
                   <img
                     src={item.image}
                     alt={item.name}
-                    className="w-16 h-16 rounded-lg object-cover bg-amber-50 shrink-0"
+                    className="w-16 h-16 rounded-xl object-contain p-1 bg-white border border-stone-200 shrink-0 shadow-xs"
                   />
                   <div className="flex-1 min-w-0">
                     <h5 className="font-bold text-stone-900 text-xs sm:text-sm truncate">
@@ -318,3 +318,4 @@ export default function CartDrawer({
     </div>
   );
 }
+

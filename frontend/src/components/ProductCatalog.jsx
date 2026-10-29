@@ -121,23 +121,42 @@ export default function ProductCatalog({ onAddToCart }) {
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 text-xs">
-              <div className="bg-white/90 p-3 rounded-xl border border-amber-300">
+              <div className="bg-white/95 p-3 rounded-2xl border border-amber-300 shadow-sm flex flex-col items-center text-center">
+                <div className="h-24 w-full flex items-center justify-center mb-2">
+                  <img src="/products/mel280g.png" alt="Bisnaga 280g" className="max-h-full object-contain drop-shadow" />
+                </div>
                 <span className="font-bold text-amber-900 block text-sm">280g (Bisnaga)</span>
                 <p className="text-stone-700 mt-1">Prática para frutas, iogurtes e sem sujeira.</p>
               </div>
-              <div className="bg-white/90 p-3 rounded-xl border border-amber-300">
+
+              <div className="bg-white/95 p-3 rounded-2xl border border-amber-300 shadow-sm flex flex-col items-center text-center">
+                <div className="h-24 w-full flex items-center justify-center mb-2">
+                  <img src="/products/mel500g.png" alt="Frasco 500g" className="max-h-full object-contain drop-shadow" />
+                </div>
                 <span className="font-bold text-amber-900 block text-sm">500g (Frasco)</span>
                 <p className="text-stone-700 mt-1">O campeão do café da manhã em família.</p>
               </div>
-              <div className="bg-white/90 p-3 rounded-xl border border-amber-300">
+
+              <div className="bg-white/95 p-3 rounded-2xl border border-amber-300 shadow-sm flex flex-col items-center text-center">
+                <div className="h-24 w-full flex items-center justify-center mb-2">
+                  <img src="/products/mel700g.png" alt="Pote 700g" className="max-h-full object-contain drop-shadow" />
+                </div>
                 <span className="font-bold text-amber-900 block text-sm">700g (Pote)</span>
                 <p className="text-stone-700 mt-1">Pote clássico generoso para quem ama mel puro.</p>
               </div>
-              <div className="bg-white/90 p-3 rounded-xl border border-amber-300">
+
+              <div className="bg-white/95 p-3 rounded-2xl border border-amber-300 shadow-sm flex flex-col items-center text-center">
+                <div className="h-24 w-full flex items-center justify-center mb-2">
+                  <img src="/products/mel1000g.png" alt="Pote 1kg" className="max-h-full object-contain drop-shadow" />
+                </div>
                 <span className="font-bold text-amber-900 block text-sm">1.000g (1 kg)</span>
                 <p className="text-stone-700 mt-1">Excelente custo-benefício diário.</p>
               </div>
-              <div className="bg-white/90 p-3 rounded-xl border border-amber-300">
+
+              <div className="bg-white/95 p-3 rounded-2xl border border-amber-300 shadow-sm flex flex-col items-center text-center">
+                <div className="h-24 w-full flex items-center justify-center mb-2">
+                  <img src="/products/mel1440g.png" alt="Balde 1.44kg" className="max-h-full object-contain drop-shadow" />
+                </div>
                 <span className="font-bold text-amber-900 block text-sm">1.440g (Balde)</span>
                 <p className="text-stone-700 mt-1">Para culinária, chás e economia máxima.</p>
               </div>
@@ -149,3 +168,4 @@ export default function ProductCatalog({ onAddToCart }) {
     </section>
   );
 }
+

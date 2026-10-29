@@ -170,3 +170,4 @@ export default function Header({ cartCount, onOpenCart, onNavigate }) {
     </header>
   );
 }
+

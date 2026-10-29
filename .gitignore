@@ -4,3 +4,4 @@ dist
 _scraped_data
 .env
 .env.local
+

@@ -117,11 +117,11 @@ export default function HealthQuiz({ onAddToCart }) {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               
               <div className="lg:col-span-4">
-                <div className="relative aspect-square rounded-2xl overflow-hidden border-2 border-amber-400/30">
+                <div className="relative aspect-square rounded-2xl overflow-hidden border-2 border-amber-400/30 bg-stone-900/60 flex items-center justify-center p-4">
                   <img
                     src={recommendedProduct.images[recommendedProduct.variants[0].weight] || Object.values(recommendedProduct.images)[0]}
                     alt={recommendedProduct.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain drop-shadow-xl"
                   />
                   <div className="absolute top-3 left-3 bg-amber-500 text-stone-950 text-xs font-bold px-2.5 py-1 rounded-md">
                     Indicação Especial
@@ -184,3 +184,4 @@ export default function HealthQuiz({ onAddToCart }) {
     </section>
   );
 }
+
