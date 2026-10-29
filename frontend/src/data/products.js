@@ -141,7 +141,8 @@ export const STORE_INFO = {
   phone: "(62) 98622-2199",
   whatsappNumber: "5562986222199",
   email: "vendas@brapicultura.com.br",
-  instagram: "@melnectargoiano",
+  instagram: "@brapicultura2026",
+  instagramUrl: "https://www.instagram.com/brapicultura2026",
   pixKey: "vendas@brapicultura.com.br",
   pixBeneficiary: "BR Apicultura & Mel Néctar Goiano Ltda",
   freeShippingThreshold: 120.00
