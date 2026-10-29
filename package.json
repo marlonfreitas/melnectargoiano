@@ -1,0 +1,11 @@
+{
+  "name": "br-apicultura-mel-nectar-goiano",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Storefront e Landing Page de Alta Conversão para BR Apicultura - Mel Néctar Goiano",
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "preview": "npm --prefix frontend run preview"
+  }
+}

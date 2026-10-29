@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+  
+  body {
+    background-color: #FAFAF7;
+    color: #1F2937;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Honey Glow and Glass Effects */
+.honey-gradient {
+  background: linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #B45309 100%);
+}
+
+.honey-glow {
+  box-shadow: 0 10px 30px -10px rgba(245, 158, 11, 0.45);
+}
+
+.honey-card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.honey-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 35px -10px rgba(217, 119, 6, 0.18);
+}
+
+/* Honeycomb geometric pattern */
+.honeycomb-pattern {
+  background-color: #fafaf7;
+  background-image: radial-gradient(#fbbf24 0.75px, transparent 0.75px), radial-gradient(#d97706 0.75px, #fafaf7 0.75px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+  background-opacity: 0.15;
+}
